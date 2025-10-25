@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddhi Parasnaik - Biomedical Engineer & AI Researcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #0a0e27;
+            overflow-x: hidden;
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a237e 50%, #0d47a1 100%);
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(135, 206, 250, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            top: 20%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            right: 15%;
+            top: 60%;
+            animation-delay: 3s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            left: 50%;
+            top: 80%;
+            animation-delay: 6s;
+        }
+
+        .shape:nth-child(4) {
+            width: 60px;
+            height: 60px;
+            right: 30%;
+            top: 10%;
+            animation-delay: 9s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-50px) rotate(180deg);
+                opacity: 0.6;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 20px rgba(135, 206, 250, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid rgba(135, 206, 250, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #87CEEB;
+            text-shadow: 0 0 20px rgba(135, 206, 250, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 30px rgba(135, 206, 250, 0.8);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #87CEEB;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #87CEEB;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(135, 206, 250, 0.8);
+        }
+        
+        .hero {
+            padding: 8rem 0;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(135, 206, 250, 0.6);
+            border-radius: 50%;
+            animation: rise 15s infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -10px;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 100%;
+                opacity: 0;
+            }
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: glowPulse 3s infinite;
+            text-shadow: 0 0 20px rgba(135, 206, 250, 0.5);
+            color: #ffffff;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(135, 206, 250, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 40px rgba(135, 206, 250, 0.8), 0 0 60px rgba(135, 206, 250, 0.4);
+            }
+        }
+        
+        .hero .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #87CEEB;
+            animation: fadeInUp 1s 0.2s both;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s 0.4s both;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+        
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s 0.6s both;
+        }
+        
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            background: rgba(135, 206, 250, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 2px solid #87CEEB;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-links a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(135, 206, 250, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .contact-links a:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .contact-links a span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(135, 206, 250, 0.4);
+            border-color: #fff;
+        }
+        
+        section {
+            background: rgba(15, 20, 40, 0.95);
+            padding: 5rem 0;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        section:nth-child(even) {
+            background: rgba(20, 25, 50, 0.95);
+        }
+        
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #87CEEB;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #87CEEB, transparent);
+        }
+        
+        .education-grid, .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .card {
+            background: rgba(30, 35, 60, 0.9);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.4s;
+            border: 2px solid transparent;
+            opacity: 0;
+            transform: translateY(30px);
+            color: #e0e0e0;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(135, 206, 250, 0.3);
+            border-color: #87CEEB;
+        }
+        
+        .card h3 {
+            color: #87CEEB;
+            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+        }
+        
+        .card .meta {
+            color: #a0a0a0;
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .card ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .card li {
+            margin-bottom: 0.8rem;
+            line-height: 1.7;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: rgba(30, 35, 60, 0.9);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-left: 5px solid #87CEEB;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(-30px);
+            color: #e0e0e0;
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(135, 206, 250, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(135, 206, 250, 0.3);
+            border-left-width: 8px;
+        }
+        
+        .project-card h3 {
+            color: #87CEEB;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+        
+        .project-card .date {
+            color: #87CEEB;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: rgba(30, 35, 60, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.4s;
+            opacity: 0;
+            transform: scale(0.9);
+            color: #e0e0e0;
+        }
+
+        .skill-category.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(135, 206, 250, 0.3);
+        }
+        
+        .skill-category h3 {
+            color: #87CEEB;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #87CEEB;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(135, 206, 250, 0.2);
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .skill-category li:hover {
+            padding-left: 10px;
+            color: #87CEEB;
+            border-bottom-color: #87CEEB;
+        }
+        
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(135, 206, 250, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            border: 2px solid #87CEEB;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #87CEEB;
+            font-size: 1.5rem;
+            z-index: 99;
+        }
+
+        .scroll-indicator:hover {
+            background: rgba(135, 206, 250, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(135, 206, 250, 0.4);
+        }
+        
+        footer {
+            background: rgba(10, 14, 39, 0.98);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 2px solid rgba(135, 206, 250, 0.3);
+        }
+
+        footer p {
+            color: #87CEEB;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.3rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .projects-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">RP</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="container">
+            <h1>Riddhi Sachin Parasnaik</h1>
+            <p class="tagline">Biomedical Engineer | AI Researcher | Medical Imaging Specialist</p>
+            <p>Building AI-driven diagnostic tools for medical imaging with 3+ years of experience in deep learning, clinical validation, and real-world deployment. Specialized in segmentation, classification, and survival prediction across CT, dermatoscopy, and X-ray datasets.</p>
+            <div class="contact-links">
+                <a href="mailto:rp3333@columbia.edu"><span>Email</span></a>
+                <a href="https://www.linkedin.com/in/riddhi-parasnaik-4b0a36227/" target="_blank"><span>LinkedIn</span></a>
+                <a href="https://github.com/RiriPiri" target="_blank"><span>GitHub</span></a>
+                <a href="tel:+12012380330"><span>Call</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="card">
+                    <h3>Columbia University</h3>
+                    <div class="meta">MS in Biomedical Engineering | Expected May 2026 | New York City</div>
+                    <p><strong>Honors:</strong> Winner - Tantravihar Hackathon 2024 | Dean's List 2022-2025</p>
+                </div>
+                <div class="card">
+                    <h3>Vidyalankar Institute of Technology, University of Mumbai</h3>
+                    <div class="meta">B.E. in Biomedical Engineering with Honors in AI & ML | Jun 2025 | Mumbai, India</div>
+                    <p><strong>GPA:</strong> 9.85/10</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Work Experience</h2>
+            <div class="experience-grid">
+                <div class="card">
+                    <h3>Madabhushi Lab at Emory University</h3>
+                    <div class="meta">Undergraduate Research Assistant | Apr 2024 - Apr 2025 | Georgia, Atlanta (Remote)</div>
+                    <ul>
+                        <li>Established deep learning pipeline (PyTorch, SimpleITK) to quantify vessel tortuosity and spleen/liver volumes in CT scans for early detection of immunotherapy-related cardiac dysfunction</li>
+                        <li>Devised phenotype-based classification models (Random Forest, CNNs) for NSCLC/SCLC patients, achieving 83% F1-score in predicting treatment responders</li>
+                        <li>Co-designed mediastinal lymph node segmentation module with Dice > 0.82, facilitating survival modeling in thoracic oncology cohorts</li>
+                        <li>Contributed to multi-institutional research toward real-world clinical deployment of imaging biomarkers</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Vidyalankar Institute of Technology</h3>
+                    <div class="meta">Research Assistant | Dec 2022 - Feb 2025 | Mumbai, India</div>
+                    <ul>
+                        <li>Co-authored 3 peer-reviewed papers on DR/DME detection deploying deep learning (VGG16, ResNet, SVM) with cross-validation on Messidor and IDRiD datasets</li>
+                        <li>Created multi-branch AI pipeline addressing racial bias in skin cancer classification using ISIC and HAM10000 datasets</li>
+                        <li>Integrated Haralick features and GAN augmentation to enhance performance on underrepresented skin tones</li>
+                        <li>Collaborated with IIT Bombay's Koita Centre to evaluate model performance for deployment in low-resource settings</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Koita Centre for Digital Health, IIT Bombay</h3>
+                    <div class="meta">Project Fellow | Jun 2024 - Mar 2025 | Mumbai, India</div>
+                    <ul>
+                        <li>Built 8 ML pipelines for skin cancer classification using ISIC and HAM10000 datasets</li>
+                        <li>Developed hair removal preprocessing (OpenCV, Hough Transform) improving classifier accuracy</li>
+                        <li>Engineered hybrid models: ResNet-50 (image-based) and custom MLP-ResNet (feature-based)</li>
+                        <li>Deployed Flask web app with secure image upload and prediction dashboard for clinicians</li>
+                        <li>Integrated GAN-based augmentation and Haralick features for underrepresented classes</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Vidyalankar Institute of Technology</h3>
+                    <div class="meta">Teaching Assistant - Python Programming | Aug 2024 - Dec 2024 | Mumbai, India</div>
+                    <ul>
+                        <li>Delivered tutorials, graded assignments, and created custom learning modules to strengthen foundational coding skills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Skin Cancer Classification (Bachelor's Thesis)</h3>
+                    <div class="date">Jun 2024 - Mar 2025</div>
+                    <p>Built dual-model system (ResNet-50 & MLP-ResNet) using Haralick features, color features, GANs, and hair removal preprocessing. Achieved 84% accuracy and deployed via Flask for real-time clinician use.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Liver Tumor Segmentation</h3>
+                    <div class="date">Feb 2024 - May 2024</div>
+                    <p>Trained U-Net on liver CT scans from Medical Segmentation Decathlon Dataset, achieving Dice score > 0.85. Output supported pre-surgical tumor volume estimation and volumetric annotation for surgical planning.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Pneumonia Classifier using ResNet18</h3>
+                    <div class="date">Jan 2024 - Feb 2024</div>
+                    <p>Developed CNN classifier with low false positive rate for pneumonia classification from chest X-rays using Kaggle RSNA Dataset. Achieved AUC > 0.90 for reliable diagnostic support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Tools</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>MATLAB</li>
+                        <li>Git</li>
+                        <li>Jupyter</li>
+                        <li>Bash</li>
+                        <li>AWS (EC2, S3)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>ML & Deep Learning</h3>
+                    <ul>
+                        <li>TensorFlow, PyTorch, Keras</li>
+                        <li>Scikit-learn</li>
+                        <li>CNNs, UNet, ResNet</li>
+                        <li>SVM, GANs</li>
+                        <li>Transfer Learning</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Medical Imaging</h3>
+                    <ul>
+                        <li>Segmentation & Classification</li>
+                        <li>Radiomics</li>
+                        <li>Haralick Texture Analysis</li>
+                        <li>CLAHE, DICOM</li>
+                        <li>SimpleITK, NiBabel, PyRadiomics</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Science</h3>
+                    <ul>
+                        <li>NumPy, Pandas</li>
+                        <li>Matplotlib, Seaborn</li>
+                        <li>Survival Modeling</li>
+                        <li>Statistical Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Deployment</h3>
+                    <ul>
+                        <li>Flask</li>
+                        <li>AWS</li>
+                        <li>HTML/CSS</li>
+                        <li>Google Colab</li>
+                        <li>VS Code</li>
+                        <li>Web App Integration</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Clinical & Regulatory</h3>
+                    <ul>
+                        <li>Real-world Deployment</li>
+                        <li>Clinical Validation Workflows</li>
+                        <li>MDR Considerations</li>
+                        <li>Volumetric Biomarkers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-indicator" id="scrollTop">↑</div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Riddhi Sachin Parasnaik. All rights reserved.</p>
+            <p style="margin-top: 1rem;">Seeking roles in medical imaging, clinical AI, or digital health product development.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Particle system
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 5 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card, .project-card, .skill-category').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Show/hide scroll button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.pointerEvents = 'auto';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.pointerEvents = 'none';
+            }
+        });
+
+        // Initialize scroll button state
+        scrollTopBtn.style.opacity = '0';
+        scrollTopBtn.style.pointerEvents = 'none';
+
+        // Add parallax effect to floating shapes
+        window.addEventListener('scroll', () => {
+            const shapes = document.querySelectorAll('.shape');
+            const scrolled = window.scrollY;
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.1;
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
